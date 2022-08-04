@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>
+            My Login Page
+        </title>
+    </head>
+    <body>
+        <h2>Login to my dahboard</h2>
+        <div id="error"></div>
+        <div id="login_area">
+            Username <br>
+            <input type="text" id="user" onkeyup="checkuser()">
+            <div id="usererror"></div><br>
+            Password <br>
+            <input type="password" id="pass">
+            <div id="passerror"></div>
+            <br><br>
+            <button id="" onclick="ifeanyi()">Login</button>
+
+        </div>
+
+<script>
+    function ifeanyi()
+    {
+        var username = document.getElementById("user").value;
+        var password = document.getElementById("pass").value;
+        var pass_len = password.length;
+
+        if(username == '' || password == '')
+        {
+            alert('You are required to enter username and password');
+            document.getElementById("error").innerHTML = '<span style="color:red">Please fix error on page before continuing.</span>';
+
+            if(username == '')
+            {
+                document.getElementById("user").style.borderColor = 'red';
+            }
+            else{
+
+                document.getElementById("pass").style.borderColor = 'red';
+            }
+        }
+
+
+        if(pass_len < 8)
+        {
+            document.getElementById("passerror").innerHTML = '<span style="color:red">Your password must be more than 8 characters.</span>';
+        }
+    }
+
+
+    function checkuser()
+    {
+        var username = document.getElementById("user").value;
+        if(username != 'administrator')
+        {
+            document.getElementById("usererror").innerHTML = '<span style="color:red">Your username is wrong</span>';
+        }
+        else
+        {
+            document.getElementById("usererror").innerHTML = '<span style="color:green">Username Okay!</span>';
+        }
+    }
+</script>
+
+    </body>
+</html>
